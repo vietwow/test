@@ -77,7 +77,7 @@ message UpdateUserResponse {
 }
 
 message DeleteUserRequest {
-    User user = 1;
+    string id = 1;
 }
 
 message DeleteUserResponse {
