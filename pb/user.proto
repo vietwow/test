@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package v1;
+
+import "google/api/annotations.proto";
+
+service UserService {
+    rpc ListUser(ListUserRequest) returns (ListUserResponse) {
+        option (google.api.http) = {
+            get: "/api/v1/user",
+        };
+    }
+    rpc GetUser(GetUserRequest) returns (GetUserResponse) {
+        option (google.api.http) = {
+            get: "/api/v1/user/{id}",
+        };
+    }
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {
+        option (google.api.http) = {
+            put: "/api/v1/user",
+            body: "*",
+        };
+    }
+    rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {
+        option (google.api.http) = {
+            put: "/api/v1/user/{id}",
+            body: "*",
+        };
+    }
+    rpc DeletesUser(DeletesUserRequest) returns (DeleteUserResponse) {
+        option (google.api.http) = {
+            delete: "/api/v1/user/{id}",
+        };
+    }
+}
+
+message User {
+    string id = 1;
+    string username = 2;
+    string password = 3;
+    string email = 4;
+    string phone = 5;
+}
+
+message ListUserRequest {}
+
+message ListUserResponse {
+    repeated User users = 1;
+    bool success = 2;
+}
+
+message GetUserRequest {
+    string id = 1;
+}
+
+message GetUserResponse {
+    User user = 1;
+    bool success = 2;
+}
+
+message CreateUserRequest {
+    User user = 1;
+}
+
+message CreateUserResponse {
+    string id = 1;
+    bool success = 2;
+}
+
+message UpdateUserRequest {
+    User user = 1;
+}
+
+message UpdateUserResponse {
+    string user = 1;
+    bool success = 2;
+}
+
+message DeletesUserRequest {
+    User user = 1;
+}
+
+message DeleteUserResponse {
+    string user = 1;
+    bool success = 2;
+}
+
