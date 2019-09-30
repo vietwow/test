@@ -72,7 +72,7 @@ message UpdateUserRequest {
 }
 
 message UpdateUserResponse {
-    string user = 1;
+    string id = 1;
     bool success = 2;
 }
 
@@ -81,7 +81,7 @@ message DeleteUserRequest {
 }
 
 message DeleteUserResponse {
-    string user = 1;
+    string id = 1;
     bool success = 2;
 }
 
